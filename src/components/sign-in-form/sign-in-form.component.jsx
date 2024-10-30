@@ -19,17 +19,14 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFields);
   const { email, password } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext);
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await signInAuthWithEmailAndPassword(email, password);
-      setCurrentUser(user);
+      await signInAuthWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
