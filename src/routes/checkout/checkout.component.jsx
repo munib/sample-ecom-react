@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import {
   selectCartItems,
   selectCartTotal,
@@ -15,7 +16,6 @@ import {
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
-  console.log(`cartItemscartItems`, cartItems);
   const cartTotal = useSelector(selectCartTotal);
 
   return (
